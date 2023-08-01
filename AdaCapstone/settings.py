@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'CapstoneDjangoApp',
     'learning_app',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'your_app_name.auth0_middleware.auth_middleware',
 ]
 
 ROOT_URLCONF = 'AdaCapstone.urls'
@@ -123,3 +125,16 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH0_DOMAIN = 'dev-56vqsejjdexbdwbe.us.auth0.com'
+AUTH0_CLIENT_ID = '9Lk8m71Lfk9esXBrW5BTALWgDmWKHQwz'
+AUTH0_CLIENT_SECRET = 'mwjwUpz5LRi5ehBwAhgTid_ed2dN2F3NkUYnImOFgJESWRE4LPweZKSvwqiijXz2'
+AUTH0_AUDIENCE = 'https://dev-56vqsejjdexbdwbe.us.auth0.com/api/v2/'
+LOGIN_URL = '/login/auth0'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+AUTHENTICATION_BACKENDS = [
+
+    'social_core.backends.auth0.Auth0OAuth2',
+]
