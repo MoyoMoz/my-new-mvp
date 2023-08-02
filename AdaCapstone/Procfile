@@ -1,1 +1,1 @@
-web: gunicorn AdaCapstone.wsgi --log-file -
+web: bin/boot
