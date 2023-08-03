@@ -1,33 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import FirstPage from './FirstPage';
-import HomePage from './HomePage';
-import PracticePage from './PracticePage';
-import BuildPage from './BuildPage';
-import StudyPage from './StudyPage';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import FirstPage from './components/FirstPage';
+import HomePage from './components/HomePage';
+import PracticePage from './components/PracticePage';
+import BuildPage from './components/BuildPage';
+import StudyPage from './components/StudyPage';
+import './styles/App.css'
 
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/">
-          <FirstPage />
-        </Route>
-        <Route path="/home">
-          <HomePage />
-        </Route>
-        <Route path="/practice">
-          <PracticePage />
-        </Route>
-        <Route path="/build">
-          <BuildPage />
-        </Route>
-        <Route path="/study">
-          <StudyPage />
-        </Route>
+      <Routes>
+        <Route path="/" element={<FirstPage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/practice" element={<PracticePage />} />
+        <Route path="/build" element={<BuildPage />} />
+        <Route path="/study" element={<StudyPage />} />
         {/* Add additional routes as needed */}
-      </Switch>
+      </Routes>
     </Router>
   );
 }

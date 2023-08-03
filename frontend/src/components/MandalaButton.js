@@ -1,5 +1,5 @@
 import React from 'react';
-import './MandalaButton.css';
+import '../styles/MandalaButton.css';
 
 function MandalaButton({label, image, color, onClick}) {
   return (

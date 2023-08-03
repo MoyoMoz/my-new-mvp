@@ -1,6 +1,6 @@
 import React from 'react';
 import MandalaButton from './MandalaButton';
-import './FirstPage.css';
+import '../styles/FirstPage.css';
 
 function FirstPage() {
   const handleLoginClick = () => {
