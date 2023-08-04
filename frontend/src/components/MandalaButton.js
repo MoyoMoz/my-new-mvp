@@ -1,10 +1,12 @@
 import React from 'react';
 import '../styles/MandalaButton.css';
+import { useNavigate } from 'react-router-dom';
+import LogInButtonImg from '../images/LogInButton (1).svg';
+import BuildButtonImg from '../images/BuildButton.svg';
+import PracticeButtonImg from '../images/PracticeButton.svg';
+import StudyButtonImg from '../images/StudyButton.svg';
+import LogOutButtonImg from '../images/LogOutButton.svg';
 
-import LogInButtonImg from '../images/LogInButton.png';
-import BuildButtonImg from '../images/build-button-frame-1.svg';
-import PracticeButtonImg from '../images/practice-button-frame-2.svg';
-import StudyButtonImg from '../images/study-button-frame-1.svg';
 
 //  MandalaButton component
 function MandalaButton({label, image, color, onClick}) {
@@ -23,7 +25,7 @@ function MandalaButton({label, image, color, onClick}) {
       buttonImg = StudyButtonImg;
       break;
     case 'Log Out':  // Use a default button for Log Out
-      buttonImg = '';
+      buttonImg = LogOutButtonImg;
       break;
     default:
       buttonImg = '';  // Add a default case for safety
