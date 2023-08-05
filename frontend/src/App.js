@@ -1,24 +1,31 @@
-// /Users/somebody/Developer/CapstoneDirectory/CapstoneProject/frontend/src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import FirstPage from './components/FirstPage';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import LoginPage from './components/LoginPage';
 import HomePage from './components/HomePage';
 import PracticePage from './components/PracticePage';
-import BuildPage from './components/BuildPage';
 import StudyPage from './components/StudyPage';
-import './styles/App.css'
+import BuildPage from './components/BuildPage';
+import './App.css';
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<FirstPage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/practice" element={<PracticePage />} />
-        <Route path="/build" element={<BuildPage />} />
-        <Route path="/study" element={<StudyPage />} />
-        {/* Add additional routes as needed */}
-      </Routes>
+      <div className="app">
+        <nav className="navigation">
+          <Link to="/">Login Page</Link>
+          <Link to="/home">Home</Link>
+          <Link to="/practice">Practice</Link>
+          <Link to="/study">Study</Link>
+          <Link to="/build">Build</Link>
+        </nav>
+        <Routes>
+          <Route path="/" exact component={LoginPage} />
+          <Route path="/home" component={HomePage} />
+          <Route path="/practice" component={PracticePage} />
+          <Route path="/study" component={StudyPage} />
+          <Route path="/build" component={BuildPage} />
+        </Routes>
+      </div>
     </Router>
   );
 }
