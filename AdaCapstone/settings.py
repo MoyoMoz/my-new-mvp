@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-1ct7h3+2ph@oz@g%&_^69#xjo))ff9%@*h2p3@$1h_7wtbhm_5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.capstone.moyodev.com', 'capstone.moyodev.com']
 
 
 # Application definition
