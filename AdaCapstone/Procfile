@@ -1,2 +1,2 @@
-web: web: gunicorn AdaCapstone.wsgi --log-file -
+web: gunicorn AdaCapstone.wsgi --log-file -
 
