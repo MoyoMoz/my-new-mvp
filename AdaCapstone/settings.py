@@ -1,3 +1,5 @@
+# /CapstoneDirectory/CapstoneProject/AdaCapstone/settings.py
+
 """
 Django settings for AdaCapstone project.
 
@@ -11,20 +13,32 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+from dotenv import load_dotenv
+#
+# # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'AdaCapstone', 'static')]
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+# Path to the .env file
+env_path = Path(
+    '/Users/somebody/Developer/CapstoneDirectory/CapstoneProject/frontend') / '.env'
+
+# Load the .env file
+load_dotenv(dotenv_path=env_path)
+
+# Then you can access the variables as environment variables
+SECRET_KEY = os.getenv('SECRET_KEY')
+AUTH0_DOMAIN = os.getenv('REACT_APP_AUTH0_DOMAIN')
+AUTH0_CLIENT_ID = os.getenv('REACT_APP_AUTH0_CLIENT_ID')
+AUTH0_CLIENT_SECRET = os.getenv('AUTH0_CLIENT_SECRET')
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1ct7h3+2ph@oz@g%&_^69#xjo))ff9%@*h2p3@$1h_7wtbhm_5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['www.capstone.moyodev.com', 'capstone.moyodev.com']
 
@@ -129,10 +143,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-AUTH0_DOMAIN = 'dev-56vqsejjdexbdwbe.us.auth0.com'
-AUTH0_CLIENT_ID = '9Lk8m71Lfk9esXBrW5BTALWgDmWKHQwz'
-AUTH0_CLIENT_SECRET = 'mwjwUpz5LRi5ehBwAhgTid_ed2dN2F3NkUYnImOFgJESWRE4LPweZKSvwqiijXz2'
 AUTH0_AUDIENCE = 'https://dev-56vqsejjdexbdwbe.us.auth0.com/api/v2/'
 LOGIN_URL = '/login/auth0'
 LOGIN_REDIRECT_URL = '/'
