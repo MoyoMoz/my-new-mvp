@@ -24,7 +24,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'AdaCapstone', 'static')]
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 # Path to the .env file
 env_path = Path(
-    '/Users/somebody/Developer/CapstoneDirectory/CapstoneProject/frontend') / '.env'
+    '/Users/somebody/Developer/CapstoneDirectory/CapstoneProject/AdaCapstone/.env'
 
 # Load the .env file
 load_dotenv(dotenv_path=env_path)
