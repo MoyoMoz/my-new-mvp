@@ -38,7 +38,7 @@ AUTH0_CLIENT_SECRET = os.getenv('AUTH0_CLIENT_SECRET')
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['www.capstone.moyodev.com', 'capstone.moyodev.com']
 
