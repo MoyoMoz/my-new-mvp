@@ -14,17 +14,18 @@ function App() {
         <LoginButton className="w3-right w3-button w3-white" />
       </header>
 
-      <div className="w3-row">
+        <div className="w3-row">
         <div className="w3-half">
-          <img src="/static/images/divine_woman_on_laptop1.png" style={{ width: '100%' }} />
-          <img src="/static/images/pic21.png" style={{ width: '100%' }} />
-          <img src="/static/images/pic10.png" style={{ width: '100%' }} />
+          <img src={`${process.env.PUBLIC_URL}/static/images/divine_woman_on_laptop1.png`} style={{ width: '100%' }} alt="Image 1" />
+          <img src={`${process.env.PUBLIC_URL}/static/images/pic21.png`} style={{ width: '100%' }} alt="Image 2" />
+          <img src={`${process.env.PUBLIC_URL}/static/images/pic10.png`} style={{ width: '100%' }} alt="Image 3" />
         </div>
         <div className="w3-half">
-          <img src="/static/images/pic1.png" style={{ width: '100%' }} />
-          <img src="/static/images/pic22.png" style={{ width: '100%' }} />
+          <img src={`${process.env.PUBLIC_URL}/static/images/pic1.png`} style={{ width: '100%' }} alt="Image 4" />
+          <img src={`${process.env.PUBLIC_URL}/static/images/pic22.png`} style={{ width: '100%' }} alt="Image 5" />
         </div>
       </div>
+
 
       <footer className="w3-light-grey w3-padding-64 w3-center" id="about">
         <h2>About</h2>
