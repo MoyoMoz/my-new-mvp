@@ -1,74 +1,27 @@
 import React, { useState } from 'react';
 
-const UserInputForm = ({ setMessage }) => {
+const UserInputForm = ({ onNameSubmit }) => {
   const [name, setName] = useState('');
 
-  const handleInputChange = (e) => {
-    setName(e.target.value);
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const response = await fetch(`/capstone/api/random-message/?name=${name}`);
-    const data = await response.json();
-    setMessage(data.message);
+    onNameSubmit(name); // Call the onNameSubmit function passed as a prop
+    setName(''); // Clear the name input field
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="Enter your name" onChange={handleInputChange} value={name} />
+      <label htmlFor="name">Enter your name:</label>
+      <input
+        type="text"
+        id="name"
+        value={name} yeah
+        onChange={(e) => setName(e.target.value)}
+        required
+      />
       <button type="submit">Send</button>
     </form>
   );
 };
 
 export default UserInputForm;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState } from 'react';
-
-// function UserInputForm() {
-//   const [name, setName] = useState('');
-
-//   const handleSubmit = () => {
-//     // call the backend to get the message here
-//   };
-
-//   return (
-//     <div style={{ padding: '20px', textAlign: 'center' }}>
-//       <input
-//         type="text"
-//         placeholder="Enter your name"
-//         value={name}
-//         onChange={(e) => setName(e.target.value)}
-//         style={{ fontSize: '18px', padding: '10px', width: '80%', marginBottom: '20px' }}
-//       />
-//       <br />
-//       <button onClick={handleSubmit}>Submit</button>
-//     </div>
-//   );
-// }
-
-// export default UserInputForm;

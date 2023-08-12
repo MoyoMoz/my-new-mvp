@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './App.css';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import UserInputForm from './components/UserInputForm';
 import MessageDisplay from './components/MessageDisplay';
-import Footer from './components/Footer';
-
 
 function App() {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState(null); // Define the message state and its setter function
+
+  const fetchMessage = (name) => {
+    fetch(`/capstone/api/random-message/?name=${name}`)
+      .then((response) => {
+        console.log('Response:', response); // Logging the response for debugging
+        return response.json();
+      })
+      .then((data) => setMessage(data.message)) // Use setMessage to update the message state
+      .catch((error) => console.error('Error:', error));
+  };
+
+  const handleNameSubmit = (name) => {
+    fetchMessage(name);
+  };
 
   return (
-    <div>
+    <div className="App">
       <Header />
-      <UserInputForm setMessage={setMessage} />
+      <UserInputForm onNameSubmit={handleNameSubmit} />
       <MessageDisplay message={message} />
       <Footer />
     </div>

@@ -1,38 +1,15 @@
-from django.http import JsonResponse
+from django.shortcuts import render
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 import random
-from .models import MotivationalMessage
+from .models import Message
 
+
+@api_view(['GET'])
 def get_random_message(request):
-    name = request.GET.get('name', 'Friend')
-    messages = MotivationalMessage.objects.all()
-    if not messages:
-        return JsonResponse({"message": f"Welcome, {name}! Keep coding and never give up!"})
-    
-    random_message = random.choice(messages).message
-    personalized_message = random_message.replace("{name}", name)
-    return JsonResponse({"message": personalized_message})
-
-
-
-
-
-
-
-
-
-
-
-
-
-# from django.http import JsonResponse
-f#rom rest_framework.decorators import api_view
-#from .models import Message
-#from .serializers import MessageSerializer
-#import random
-
-#@api_view(['GET'])
-#def get_random_message(request):
- #   messages = Message.objects.all()
-  #  random_message = random.choice(messages)
-   # serializer = MessageSerializer(random_message)
-   # return JsonResponse(serializer.data) 
+    user_name = request.GET.get('name', 'Friend')
+    messages = Message.objects.all()
+    random_message = random.choice(messages)
+    personalized_message = random_message.content.replace(
+        '{name}', user_name)  # Replacing placeholder with user's name
+    return Response({"message": personalized_message})
