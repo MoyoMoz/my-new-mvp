@@ -134,6 +134,8 @@ AWS_DEFAULT_ACL = 'public-read'
 AWS_STATIC_LOCATION = 'static'
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_STATIC_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 # Media Files (user uploaded files)
 AWS_MEDIA_LOCATION = 'media'
