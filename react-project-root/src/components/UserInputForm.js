@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
 
-const UserInputForm = ({ onNameSubmit }) => {
-  const [name, setName] = useState('');
+const UserInputForm = ({ onFetchMessage }) => {
+  const [name, setName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onNameSubmit(name); // Call the onNameSubmit function passed as a prop
-    setName(''); // Clear the name input field
+    onFetchMessage();  // Fetch the message when the form is submitted
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Enter your name:</label>
-      <input
-        type="text"
-        id="name"
-        value={name} yeah
-        onChange={(e) => setName(e.target.value)}
-        required
-      />
-      <button type="submit">Send</button>
-    </form>
+    <div>
+      <h2>Enter your name:</h2>
+      <form onSubmit={handleSubmit}>
+        <input 
+          type="text" 
+          value={name} 
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Type your name here"
+        />
+        <button type="submit">Send</button>
+      </form>
+    </div>
   );
 };
 

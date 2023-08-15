@@ -1,34 +1,28 @@
 import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
-import Footer from './components/Footer';
 import UserInputForm from './components/UserInputForm';
 import MessageDisplay from './components/MessageDisplay';
+import Footer from './components/Footer';
 
 function App() {
-  const [message, setMessage] = useState(null); // Define the message state and its setter function
+  const [message, setMessage] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
-  const fetchMessage = (name) => {
-    fetch(`/capstone/api/random-message/?name=${name}`)
-      .then((response) => {
-        console.log('Response:', response); // Logging the response for debugging
-        return response.json();
-      })
-      .then((data) => setMessage(data.message)) // Use setMessage to update the message state
-      .catch((error) => {
-        console.error("Error fetching the message:", error);
+  const fetchMessage = () => {
+    fetch('http://localhost:8000/api/random-message/')
+      .then(response => response.json())
+      .then(data => {
+        setMessage(data.message);
+        setImageUrl(data.image_url);
       });
-  }; // <-- This closing curly brace was missing
-
-  const handleNameSubmit = (name) => {
-    fetchMessage(name);
   };
 
   return (
     <div className="App">
       <Header />
-      <UserInputForm onNameSubmit={handleNameSubmit} />
-      <MessageDisplay message={message} />
+      <UserInputForm onFetchMessage={fetchMessage} />
+      <MessageDisplay message={message} imageUrl={imageUrl} />
       <Footer />
     </div>
   );
