@@ -15,8 +15,10 @@ function App() {
         return response.json();
       })
       .then((data) => setMessage(data.message)) // Use setMessage to update the message state
-      .catch((error) => console.error('Error:', error));
-  };
+      .catch((error) => {
+        console.error("Error fetching the message:", error);
+      });
+  }; // <-- This closing curly brace was missing
 
   const handleNameSubmit = (name) => {
     fetchMessage(name);
