@@ -9,14 +9,15 @@ function App() {
   const [message, setMessage] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
-  const fetchMessage = () => {
-    fetch('http://localhost:8000/api/random-message/')
+  const fetchMessage = (userName) => {
+    fetch(`http://localhost:8000/api/random-message/?name=${userName}`)
       .then(response => response.json())
       .then(data => {
         setMessage(data.message);
         setImageUrl(data.image_url);
       });
   };
+
 
   return (
     <div className="App">

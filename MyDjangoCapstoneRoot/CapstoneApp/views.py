@@ -17,5 +17,5 @@ def get_random_message(request):
     random_message = random.choice(messages)
     personalized_message = random_message.text.replace(
         '{name}', user_name)  # Replacing placeholder with user's name
-    image_url = random_message.image.url if random_message.image else None
+    image_url = random_message.image_url
     return Response({"message": personalized_message, "image_url": image_url})
