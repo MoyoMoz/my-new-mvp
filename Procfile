@@ -1,1 +1,1 @@
-web: gunicorn MyDjangoCapstoneRoot.MyDjangoCapstoneRoot.wsgi
+web: gunicorn MyDjangoCapstoneRoot.wsgi
