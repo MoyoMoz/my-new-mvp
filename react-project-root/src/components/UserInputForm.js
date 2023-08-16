@@ -5,7 +5,8 @@ const UserInputForm = ({ onFetchMessage }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onFetchMessage();  // Fetch the message when the form is submitted
+    onFetchMessage(name);
+  // Fetch the message when the form is submitted
   };
 
   return (
