@@ -3,3 +3,4 @@ myenv/
 node_modules/
 venv/
 package-lock.json
+.env
