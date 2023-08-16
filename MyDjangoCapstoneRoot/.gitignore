@@ -1,7 +1,8 @@
 .vscode/
+MyDjangoCapstoneRoot/
 myenv/
 node_modules/
+react-project-root/
 venv/
+db.sqlite3
 package-lock.json
-venv
-node_modules
