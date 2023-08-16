@@ -1,5 +1,5 @@
 venv/
 .env
 node_modules/
-myenv/
+myvenv/
 
