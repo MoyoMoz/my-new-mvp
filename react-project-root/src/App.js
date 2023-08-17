@@ -9,15 +9,18 @@ function App() {
   const [message, setMessage] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
+  // Define the API_URL
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
+
   const fetchMessage = (userName) => {
-    fetch(`http://localhost:8000/api/random-message/?name=${userName}`)
+    // Use the API_URL in the fetch call
+    fetch(`${API_URL}/api/random-message/?name=${userName}`)
       .then(response => response.json())
       .then(data => {
         setMessage(data.message);
         setImageUrl(data.image_url);
       });
   };
-
 
   return (
     <div className="App">
