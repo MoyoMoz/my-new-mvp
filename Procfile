@@ -1,1 +1,1 @@
-web: PYTHONPATH=/app/ gunicorn core.wsgi
+web: PYTHONPATH=/app/MyDjangoCapstoneRoot gunicorn MyDjangoCapstoneRoot.core.wsgi
