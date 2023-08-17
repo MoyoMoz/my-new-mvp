@@ -66,7 +66,7 @@ MIDDLEWARE = [
 CORS_ALLOW_ALL_ORIGINS = True
 
 
-ROOT_URLCONF = 'MyDjangoCapstoneRoot.urls'
+ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
     {
@@ -84,7 +84,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'MyDjangoCapstoneRoot.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database

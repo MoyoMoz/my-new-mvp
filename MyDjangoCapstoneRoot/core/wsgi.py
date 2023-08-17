@@ -14,7 +14,7 @@ print(sys.path)
 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE',
-                      'MyDjangoCapstoneRoot.settings')
+                      'core.settings')
 
 
 application = get_wsgi_application()
