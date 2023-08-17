@@ -36,7 +36,7 @@ if not SECRET_KEY:
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1',
-                 'capstone.moyodev.com', 'www.capstone.moyodev.com']
+                 'capstone.moyodev.com', 'www.capstone.moyodev.com', '.herokuapp.com',]
 
 # Application definition
 
@@ -90,22 +90,24 @@ WSGI_APPLICATION = 'MyDjangoCapstoneRoot.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / "db.sqlite3",
+if DEBUG:  # When you're in development mode
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / "db.sqlite3",
+        }
     }
-}
-
-# Use DATABASE_URL environment variable in Heroku
-DATABASE_URL = os.environ.get('DATABASE_URL')
-if DATABASE_URL:
+else:  # When you're in production
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            # ... other PostgreSQL settings ...
+        }
+    }
+    DATABASE_URL = os.environ.get('DATABASE_URL')
     db_from_env = dj_database_url.config(
         default=DATABASE_URL, conn_max_age=500, ssl_require=True)
     DATABASES['default'].update(db_from_env)
-
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
