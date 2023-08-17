@@ -30,3 +30,11 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.motivational-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: block;
+    margin: 20px auto;
+}
