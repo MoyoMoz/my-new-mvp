@@ -6,6 +6,10 @@ from .models import Message
 from django.http import HttpResponse
 
 
+def serve_react_app(request):
+    return render(request, 'index.html')
+
+
 def home(request):
     return HttpResponse("Welcome to my Django Capstone project!")
 
